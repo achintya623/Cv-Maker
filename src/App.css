@@ -1,0 +1,336 @@
+/* --- Global Reset and Typography --- */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+:root {
+  --primary-color: #2c5282; /* Deep Blue for accents */
+  --secondary-color: #f7fafc; /* Light Gray for background */
+  --text-color: #1a202c; /* Dark text */
+  --border-color: #e2e8f0; /* Light border */
+  --danger-color: #e53e3e; /* Red for delete */
+  --success-color: #38a169; /* Green for done/add */
+  --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--secondary-color);
+}
+
+/* --- Main Layout --- */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* Desktop Layout: Two columns */
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    padding: 40px;
+  }
+}
+
+/* Mobile/Tablet Layout: Single column */
+@media (max-width: 1023px) {
+  .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+}
+
+/* --- Form Styles --- */
+
+.form-main-div {
+  flex: 1; /* Takes half space on desktop */
+  min-width: 400px;
+  max-width: 100%;
+}
+
+.form-block {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.form-block-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-block-header:hover {
+  background-color: #2b6cb0;
+}
+
+.form-block-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.form-block-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- Form Fields --- */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px 0px;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-left: 10px;
+}
+
+.form-field input {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
+}
+
+/* Date fields in Education/Experience */
+.form-item-content > span {
+  display: flex;
+  gap: 15px;
+}
+
+.form-item-content > span .form-field {
+  flex: 1;
+}
+
+/* --- Item List and Entry Titles (Education/Experience) --- */
+
+.education-entry-title,
+.experience-entry-title {
+  /* Style added inline in JSX */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-color);
+  margin-bottom: 5px;
+  transition: background-color 0.2s;
+}
+
+.education-entry-title:hover,
+.experience-entry-title:hover {
+  background-color: #edf2f7;
+}
+
+/* --- Item Form Content (The expanded form inside the list item) --- */
+.form-item-content {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- Buttons --- */
+
+.form-block-content > button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.form-block-content > button:hover {
+  transform: translateY(-1px);
+}
+
+/* Add Education/Experience Button */
+.form-block-content > button:not(.done-button, .delete-button) {
+  background-color: var(--success-color);
+  color: white;
+}
+
+/* Actions inside the Item Form */
+.form-item-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.done-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+.delete-button {
+  background-color: var(--danger-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+/* --- CV Preview Styles (PreviewMainDiv) --- */
+
+/* ⚠️ Note: I am styling .preview-mai-div to match your JSX typo */
+.preview-main-div {
+  flex: 1; /* Takes half space on desktop */
+  background-color: white;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  min-height: 800px;
+  padding: 40px;
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* --- Header Section (Personal Details) --- */
+.preview-header {
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header-name h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #4a5568;
+  justify-content: space-evenly;
+}
+
+.header-info > div {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Body Sections (Education/Experience) --- */
+
+.preview-body-block {
+  margin-bottom: 25px;
+  padding-top: 10px;
+}
+
+.preview-body-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* --- Education/Experience Item Structure --- */
+
+.preview-education-item,
+.preview-experience-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.preview-education-item-left,
+.preview-experience-item-left {
+  flex-shrink: 0;
+  width: 30%;
+  font-weight: 400;
+  color: #4a5568;
+  text-align: left;
+}
+
+.preview-education-item-right,
+.preview-experience-item-right {
+  flex-grow: 1;
+  width: 70%;
+  text-align: left;
+}
+
+.preview-education-item-right > div:first-child,
+.preview-experience-item-right > div:first-child {
+  font-weight: 600; /* School/Company Name */
+  color: var(--text-color);
+}
+
+.preview-experience-item-right > div:nth-child(2) {
+  font-style: italic; /* Position/Degree */
+  margin-bottom: 5px;
+}
+
+/* Mobile Responsiveness for CV Items */
+@media (max-width: 600px) {
+  .preview-education-item,
+  .preview-experience-item {
+    flex-direction: column;
+  }
+  .preview-education-item-left,
+  .preview-experience-item-left {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+svg {
+  width: 15px;
+  height: 12px;
+  fill: #2c5282;
+}
+
+.location-svg {
+  width: 18px;
+  height: 18px;
+  fill: #2c5282;
+}
