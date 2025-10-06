@@ -1,5 +1,5 @@
 import React from "react";
-import { PersonalFormBlock } from "./personalFormBlock";
+import { PersonalFormBlock } from "./PersonalFormBlock";
 import EducationFormBlock from "./EducationFormBlock";
 import ExperienceFormBlock from "./ExperienceFormBlock";
 
